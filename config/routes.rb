@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resources :articles do
   	resources :comments
   	get 'articles/mine' , on: :collection
-
   end
  end
