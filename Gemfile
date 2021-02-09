@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 # Use Redis adapter to run Action Cable in production
