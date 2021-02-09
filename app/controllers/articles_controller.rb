@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except:[:index,:show]
   before_action :correct_user, only:[:edit,:update,:destroy]
   def index
-  	@articles=Article.all
+    @q = Article.ransack(params[:q])
+  	@articles=@q.result
+
   end
 
   def mine
