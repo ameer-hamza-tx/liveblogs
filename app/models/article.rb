@@ -10,10 +10,6 @@ class Article < ApplicationRecord
   	["id", "title", "body"]
   end
 
-  ransacker :id do
-    Arel::Nodes::SqlLiteral.new(
-      "regexp_replace(to_char(\"#{table_name}\".\"id\", '99999999'), ' ', '', 'g')"
-    )
-  end
+  
   
 end
