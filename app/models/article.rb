@@ -10,6 +10,11 @@ class Article < ApplicationRecord
   	["id", "title", "body"]
   end
 
+  def self.search(params)
+    articles=Article.where("body LIKE ? or title LIKE ? or id LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%") if params[:search].present?
+    articles
+  end
+
   ransacker :id do
     Arel::Nodes::SqlLiteral.new(
       "regexp_replace(to_char(\"#{table_name}\".\"id\", '99999999'), ' ', '', 'g')"

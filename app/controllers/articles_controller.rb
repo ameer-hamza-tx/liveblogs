@@ -1,11 +1,19 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except:[:index,:show]
+  before_action :authenticate_user!, except:[:index,:show,:search]
   before_action :correct_user, only:[:edit,:update,:destroy]
 
   def index
-    @q = Article.ransack(params[:query])
-  	@articles=@q.result.order("created_at ASC").page(params[:page])
+  	@articles=Article.all.order("created_at ASC").page(params[:page])
   end
+
+  def search
+    if params[:search].blank?
+      @articles=@articles=Article.all.order("created_at ASC").page(params[:page])
+    else 
+      @articles=Article.search(params)
+    end
+  end
+
   def mine
     @article=Article.where(user_id: current_user.id)
   end

@@ -32,8 +32,16 @@
         <% end %>
       </ul>
     </div>
-    <%= form_tag root_path do %>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search",name="query">
+    <div class="form-inline mt-2 mt-md-0">
+    <%= form_tag search_articles_path ,method: :get do  %>
+    <%= text_field_tag :search,nil,placeholder:"Search",class:"form-control mr-sm-2"%>
+    <%= submit_tag "search",class:"btn btn-outline-success my-2 my-sm-0" %>
     <% end %>
+  </div>
+<!--    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  -->
   </div>
 </nav>
