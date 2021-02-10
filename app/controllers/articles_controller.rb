@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only:[:edit,:update,:destroy]
 
   def index
-    @q = Article.ransack(params[:q])
+    @q = Article.ransack(params[:query])
   	@articles=@q.result.order("created_at ASC").page(params[:page])
   end
   def mine
