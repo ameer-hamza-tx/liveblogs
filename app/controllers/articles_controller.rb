@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except:[:index,:show]
   before_action :correct_user, only:[:edit,:update,:destroy]
+
   def index
     @q = Article.ransack(params[:q])
   	@articles=@q.result.order("created_at DESC").page(params[:page])
   end
-
   def mine
     @article=Article.where(user_id: current_user.id)
   end

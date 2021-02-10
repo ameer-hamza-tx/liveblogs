@@ -30,8 +30,18 @@
           <%=link_to 'Sign Up',new_user_registration_path,class:"nav-link" %>
         </li>
         <% end %>
+        <li>
+        <%= search_form_for @q do |f| %>
+  <div class="field">
+    <%= f.label:title_or_body_or_id_cont,"Search " %>
+    <%= f.search_field:id_or_title_or_body_cont,placeholder:"Search" %>
+  </li>
+  <div class="action"><%= f.submit "Search",class:"btn btn-outline-secondary"%></div>
+</br>
+</div>
+<% end %>
+</li>
       </ul>
-      </form>
     </div>
   </div>
 </nav>
