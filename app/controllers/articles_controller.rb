@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.ransack(params[:q])
-  	@articles=@q.result.order("created_at DESC").page(params[:page])
+  	@articles=@q.result.order("created_at ASC").page(params[:page])
   end
   def mine
     @article=Article.where(user_id: current_user.id)
