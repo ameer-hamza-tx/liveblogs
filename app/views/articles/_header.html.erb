@@ -28,18 +28,15 @@
         </li>
         <% end %>
 
-        <li>
       <li>
       <%= search_form_for @q do |f| %>
-  <div class="field form-group">
-    <%= f.label:title_or_body_or_id_cont,"Search " %>
-    <%= f.search_field:id_or_title_or_body_cont,placeholder:"Search",class:"form-control" %>
- 
-</br>
-</div>
-<% end %>
-</li>
-</ul>
+      <div class="field form-group">
+      <%= f.label:title_or_body_or_id_cont,"Search " %>
+      <%= f.search_field:id_or_title_or_body_cont,placeholder:"Search",class:"form-control" %>
+      </div>
+      <% end %>
+      </li>
+      </ul>
     </div>
   </div>
 </nav>
