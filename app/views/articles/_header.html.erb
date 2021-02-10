@@ -1,14 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <%= link_to 'Articles', root_path,class:"navbar-brand"%>
+     <%= link_to 'Articles', root_path,class:"navbar-brand"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li> -->
         <%if user_signed_in? %>
         <li class="nav-item">
           <%=link_to 'My Articles', articles_mine_articles_path,class:"nav-link" %>
@@ -30,18 +27,17 @@
           <%=link_to 'Sign Up',new_user_registration_path,class:"nav-link" %>
         </li>
         <% end %>
+
         <li>
-        <%= search_form_for @q do |f| %>
-  <div class="field">
+      </ul>
+      <%= search_form_for @q do |f| %>
+  <div class="field form-group">
     <%= f.label:title_or_body_or_id_cont,"Search " %>
-    <%= f.search_field:id_or_title_or_body_cont,placeholder:"Search" %>
-  </li>
-  <div class="action"><%= f.submit "Search",class:"btn btn-outline-secondary"%></div>
+    <%= f.search_field:id_or_title_or_body_cont,placeholder:"Search",class:"form-control" %>
+ 
 </br>
 </div>
 <% end %>
-</li>
-      </ul>
     </div>
   </div>
 </nav>
