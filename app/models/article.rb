@@ -11,14 +11,8 @@ class Article < ApplicationRecord
   end
 
   def self.search(params)
-    articles=Article.where("body LIKE '%#{params[:search]}%' or title LIKE '%#{params[:search]}%'") if params[:search].present?
+    articles=Article.where("body LIKE '%#{params[:search]}%' or title LIKE '%#{params[:search]}%' or id LIKE '%#{params[:search]}%'") if params[:search].present?
     articles
-  end
-
-  ransacker :id do
-    Arel::Nodes::SqlLiteral.new(
-      "regexp_replace(to_char(\"#{table_name}\".\"id\", '99999999'), ' ', '', 'g')"
-    )
   end
   
 end
