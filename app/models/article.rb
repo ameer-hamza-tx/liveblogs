@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   end
 
   def self.search(params)
-    articles=Article.where("body LIKE ? or title LIKE ? or cast(id as text) lIKE ?","%#{params[:search]}%","%#{params[:search]}%","#{params[:search]}")
+    articles=Article.where("body ILIKE ? or title ILIKE ? or cast(id as text) lIKE ?","%#{params[:search]}%","%#{params[:search]}%","#{params[:search]}")
     articles
     end
   
