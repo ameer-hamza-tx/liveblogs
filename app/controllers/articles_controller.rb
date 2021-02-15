@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     if params[:search].blank?
       @articles=Article.all.order("created_at ASC").page(params[:page])
     else 
-      @articles=Article.search(params)
+      @articles=Article.search(params).order("created_at ASC").page(params[:page])
     end
   end
 
