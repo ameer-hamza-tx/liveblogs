@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except:[:index,:show,:search]
   before_action :correct_user, only:[:edit,:update,:destroy]
-
+  before_action :set_global_search_variable
   def index
-    @q=Article.search(params[:q])
+    @q=Article.ransack(params[:q])
     @articles=@q.result.order("created_at ASC").page(params[:page])
   	#@articles=Article.all.order("created_at ASC").page(params[:page])
   end

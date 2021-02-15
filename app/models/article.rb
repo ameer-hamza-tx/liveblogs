@@ -10,13 +10,7 @@ class Article < ApplicationRecord
   	["id", "title", "body"]
   end
 
-  # def self.search(params)
-  #   articles=Article.where("body ILIKE ? or title ILIKE ? or cast(id as text) lIKE ?","%#{params[:search]}%","%#{params[:search]}%","#{params[:search]}")
-  #   articles
-  #   end
-
-  # ransacker :id_to_s do 
-  # Arel.sql("regexp_replace(to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')")
-  # end
-  
+  ransacker :id_to_s do 
+  Arel.sql("regexp_replace(to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')")
+  end
 end
