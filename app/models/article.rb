@@ -6,7 +6,7 @@ class Article < ApplicationRecord
 	validates :title, presence: true
   validates :body, presence: true
 
-  def self.ransackable_trributes
+  def self.ransackable_attributes(auth_object=null)
   	["id", "title", "body"]
   end
 
@@ -17,6 +17,6 @@ class Article < ApplicationRecord
 
   ransacker :id_to_s do 
   Arel.sql("regexp_replace(to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')")
-end
+  end
   
 end

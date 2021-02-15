@@ -3,18 +3,9 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only:[:edit,:update,:destroy]
 
   def index
-    @q=Article.ransack(params[:q])
+    @q=Article.search(params[:q])
     @articles=@q.result.order("created_at ASC").page(params[:page])
   	#@articles=Article.all.order("created_at ASC").page(params[:page])
-  end
-
-  def search
-    
-    # if params[:search].blank?
-    #   @articles=Article.all.order("created_at ASC").page(params[:page])
-    # else 
-    #   @articles=Article.search(params).order("created_at ASC").page(params[:page])
-    # end
   end
 
   def mine

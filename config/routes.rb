@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   	resources :comments
   	collection do 
   		get 'mine'
-  		get 'search'
   	end 
   end
  end
