@@ -15,8 +15,8 @@ class Article < ApplicationRecord
   #   articles
   #   end
 
-  ransacker :id_to_s do 
-  Arel.sql("regexp_replace(to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')")
-  end
+  # ransacker :id_to_s do 
+  # Arel.sql("regexp_replace(to_char(\"#{table_name}\".\"id\", '9999999'), ' ', '', 'g')")
+  # end
   
 end
