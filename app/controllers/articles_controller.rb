@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   def search
     if params[:search].blank?
-      @articles=@articles=Article.all.order("created_at ASC").page(params[:page])
+      @articles=Article.all.order("created_at ASC").page(params[:page])
     else 
       @articles=Article.search(params)
     end
